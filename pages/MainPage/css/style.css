@@ -1,0 +1,12 @@
+body {
+	background-color: #e9e9e9;
+	position: relative;
+}
+
+#main-panel {
+	width: 1100px;
+	height: 3500px;
+	background-color: #ffffff;
+	margin: 0 auto;
+	box-shadow: 5px 5px 8px #888888, -5px 5px 8px #888888;
+}
