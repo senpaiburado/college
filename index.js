@@ -25,5 +25,5 @@ if (config["is_under_maintenance"]) {
 	});
 }
 
-app.listen(25565);
+app.listen(8080);
 
