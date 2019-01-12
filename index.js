@@ -31,7 +31,6 @@ app.use("/temporary_not_working", express.static(__dirname + "/temporary_not_wor
 app.use("/pages", express.static(__dirname + "/pages"));
 
 
-
 app.get("/", function(request, response) { 
 	response.render(path.join(__dirname + "/pages/MainPage/index.ejs"), {
 		maintenance: config["is_under_maintenance"]
@@ -45,4 +44,3 @@ app.get("/", function(request, response) {
 // }
 
 app.listen(80);
-
