@@ -11,6 +11,8 @@
   "dependencies": {
     "ddos": "^0.1.33",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-rate-limit": "^3.3.2",
+    "rate-limiter-flexible": "^0.21.2"
   }
 }

@@ -1,0 +1,24 @@
+#alert {
+	margin: 0 auto;
+	width: 400px;
+	height: 200px;
+	border: 1px solid gray;
+}
+
+#header-title {
+	display: block;
+	background-image: linear-gradient(#0B3776, #0E489B);
+	color: white;
+	font-size: 35px;
+	font-weight: bolder;
+	text-align: center;
+	height: 50px;
+}
+
+#desc {
+	display: block;
+	color: blue;
+	font-weight: bold;
+	font-size: 25px;
+	text-align: center;
+}

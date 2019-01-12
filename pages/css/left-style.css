@@ -97,3 +97,17 @@
 	margin-top: 5px;
 	border-bottom: 1px dotted gray;
 }
+
+#strada-link {
+	margin-top: 20px;
+	border: 1px solid gray;
+	text-decoration: none;
+	width: 270px;
+	height: 300px;
+	display: block;
+}
+
+#strada-link img {
+	width: 100%;
+	height: 100%;
+}

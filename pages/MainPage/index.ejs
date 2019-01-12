@@ -11,6 +11,14 @@
 	<%- include ../header.ejs %>
 	<div id="main-panel">
 		<%- include ../left.ejs %>
+
+		<div id="content">
+		<% if (maintenance) { %>
+			<%- include ../temporary_not_working/index.ejs %>
+		<% } else { %>
+			<h1>All is ok</h1>
+		<% } %>
+		</div>
 	</div>
 </div>
 </body>
