@@ -22,7 +22,7 @@ const rateLimiterMiddleware = (req, res, next) => {
 }
 
 // Protect our site from DDOS.
-app.use(rateLimiterMiddleware);
+//app.use(rateLimiterMiddleware);
 // Set EJS to be used.
 app.set("view engine", "ejs");
 
@@ -43,4 +43,4 @@ app.get("/", function(request, response) {
 // 	return list;
 // }
 
-app.listen(80);
+app.listen(8080);
