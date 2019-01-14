@@ -1,7 +1,7 @@
 #alert {
 	margin: 0 auto;
-	width: 400px;
-	height: 200px;
+	width: 500px;
+	height: 250px;
 	border: 1px solid gray;
 }
 
@@ -16,6 +16,7 @@
 }
 
 #desc {
+	height: 200px;
 	display: block;
 	color: blue;
 	font-weight: bold;
