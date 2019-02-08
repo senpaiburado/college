@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div style="width: 800px; margin: 0 auto; box-shadow: 1px 1px 10px black; background-color: darkgrey;">
+		<form enctype="application/json" method="post" action="/admin/edit-left-menu">
+			<div id ="block">
+				<% for (var i = 0; i < headers.length; i++) { %>
+				<p id="paragraph_<%=i%>" class="data_paragraph">
+					<input type="text" placeholder="Назва..." value="<%=headers[i].name%>" name="[<%=i%>]name">
+					<input type="text" placeholder="Адреса" value="<%=headers[i].link%>" name="[<%=i%>]link">
+					<a href="#" onclick="remove('paragraph_<%=i%>');">(видалити)</a>
+					<br/>
+					<hr/>
+				</p>
+				<% } %>
+			</div>
+			<a href="#" onclick="add()">Додати пункт</a>
+			<input type="submit" value="Зберегти">
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		function uuidv4() {
+			return 'xxxx-xxx-4xxx-yxx-xxxxxx'.replace(/[xy]/g, function(c) {
+				var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8); 
+				return v.toString(16); 
+			}); 
+		}
+
+		function remove(id) {
+			var object = document.getElementById(id);
+			if (object)
+				object.remove();
+		}
+
+		function add() {
+			var object = document.getElementById("block");
+			if (object) {
+				var newParagraph = document.createElement("p");
+				var line = String(document.getElementsByClassName("data_paragraph").length);
+				newParagraph.id = "paragraph_" + line;
+
+				var textInput = document.createElement("input");
+				textInput.type = "text";
+				textInput.placeholder = "Назва...";
+				textInput.name = "[" + Number(line) + "]name";
+
+				var linkInput = document.createElement("input");
+				linkInput.type = "text";
+				linkInput.placeholder = "Адреса";
+				linkInput.name = "[" + Number(line) +  "]link";
+
+				var removeLink = document.createElement("a");
+				removeLink.href = "#";
+				removeLink.onclick = function() {
+					remove("paragraph_" + line);
+				}
+				removeLink.innerHTML = "(видалити)";
+
+				newParagraph.appendChild(textInput);
+				newParagraph.appendChild(linkInput);
+				newParagraph.appendChild(removeLink);
+				newParagraph.appendChild(document.createElement("br"));
+				newParagraph.appendChild(document.createElement("hr"));
+
+				object.appendChild(newParagraph);
+			}
+		}
+	</script>
+</body>
+</html>

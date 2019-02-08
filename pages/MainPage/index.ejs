@@ -1,23 +1,86 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Коледж ЧНУ імені Юрія Федьковича</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/pages/MainPage/css/style.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </head>
 <body bgcolor="#e9e9e9">
-	<%- include ../header.ejs %>
+	<% if (admin) { %>
+	<span id="admin-panel">
+			<p style="float: left;">
+				Вітаємо, <%= adminId %>! 
+				<p style="float: right;">
+					<a href="/admin/postarticle">Додати статтю</a>
+					|
+					<a href="/admin/logout" onclick="return confirm('Ви дійсно хочете вийти?')">Вийти</a>
+				</p>
+			</p>
+	</span>
+	<% } %>
+	<%- include("../header.ejs") %>
 	<div id="main-panel">
 		<%- include ../left.ejs %>
 
 		<div id="content">
-		<% if (maintenance) { %>
+			<% if (maintenance) { %>
 			<%- include ../temporary_not_working/index.ejs %>
-		<% } else { %>
-			<h1>All is ok</h1>
-		<% } %>
+			<% } else { %>
+			<div id="director-part">
+				<img src="/pages/MainPage/images/director.jpg" height="265px" />
+				<div id="director-text">
+					<p style="text-align: justify; text-indent: 36pt;"><span style="font-size: 10pt;">Коледж Чернівецького національного університету імені Юрія Федьковича є структурним підрозділом університету без статусу юридичної особи і надає освітні послуги, пов'язані з одержанням вищої освіти на рівні кваліфікаційних вимог до молодшого спеціаліста з одночасним наданням повної загальної середньої освіти. Наш навчальний заклад має відповідний рівень кадрового та матеріально-технічного забезпечення.<br/></span><span style="font-size: 10pt; text-indent: 36pt;">&nbsp; &nbsp; &nbsp;Юридичною датою створення Коледжу є 2001 рік, проте за такий короткий період існування він посів одне з провідних місць серед вищих навчальних закладів І-ІІ рівнів акредитації.</span></p>
+					<p style="text-align: justify; text-indent: 36pt;"><em><span style="font-size: 10pt;">Директор Коледжу ЧНУ, доцент - О.В. Собчук</span></em></p>
+					<p style="text-indent: 36pt; text-align: right;"><span style="font-size: 10pt;"><a href="/web/20180810122818/http://college-chnu.cv.ua/index.php?option=com_content&amp;view=article&amp;id=69:2012-10-05-13-17-43&amp;catid=11:2012-10-05-12-42-46">Детальніше</a></span></p>
+				</div>
+			</div>
+			<div id="chnu-images">
+				<img src="/pages/MainPage/images/chnu.jpg"/>
+				<p>
+					<a id="info-package" href="<%=info_package_link%>"><%=info_package_text%></a>
+					<% if (admin) { %>
+					<a href="/admin/edit-package-info">(редагувати)</a>
+					<% } %>
+				</p>
+			</div>
+			<div id="news-block">
+				<p>
+					<h1>Новини</h1>
+					<% if (admin) { %>
+					<a href="/admin/addnew" style="float: right;">(додати)</a>
+					<% } %>
+				</p>
+				<ul>
+					<% for (var i = 0; i < news.length; i++) { %>
+					<li>
+						<div id="img-containter">
+							<% if (admin) { %>
+							<p>
+								<a href="/admin/remove-news/<%=news[i]._id%>" style="position: relative; top: 0; left: -10;" onclick="return confirm('Підтверджуєте видалення новини?')">(видалити)</a>
+								<a href="/admin/addnew/?id=<%=news[i]._id%>" style="position: relative; top: -10; left: -10;">(редагувати)</a>
+							</p>
+							<% } %>
+							<img src="<%=news[i].image%>"/>
+						</div>
+						<p><%- news[i].text %></p>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+			<% if (pagesCount > 1) { %>
+			<ul id="pages-list">
+				<% for (var i = 1; i < pagesCount + 1; i++) { %>
+				<% if (page === i) { %>
+				<li><%= i %></li>
+				<% } else { %>
+				<li><a href="/?page=<%=i%>"><%= i %></a></li>
+				<% } %>
+				<% } %>
+			</ul>
+			<% } %>
+			<% } %>
 		</div>
 	</div>
 </div>

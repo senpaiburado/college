@@ -9,10 +9,14 @@
   "author": "Vlad.Cholak",
   "license": "ISC",
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^11.2.0",
     "ddos": "^0.1.33",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-fileupload": "^1.1.1-alpha.1",
     "express-rate-limit": "^3.3.2",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.1.12",
     "mysql": "^2.16.0",
     "rate-limiter-flexible": "^0.21.2"
   }

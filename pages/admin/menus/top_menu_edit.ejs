@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/pages/admin/menus/top_style.css">
+</head>
+<body>
+	<div id="field">
+		<form enctype="application/json" method="post" action="/admin/edit-top-menu">
+			<% for (var i = 0; i < topHeaders.length; i++) { %>
+			<input type="text" placeholder="Назва..." value="<%=topHeaders[i].buttonName%>" name="[<%=i%>]buttonName">
+			<input type="text" placeholder="Адреса" value="<%=topHeaders[i].link%>" name="[<%=i%>]link">
+
+			<div style="margin-left: 50px;" id="div_<%=i%>">
+				<a href="#" onclick="add('div_<%=i%>')">(додати)</a>
+				<% if (topHeaders[i].subItems) for (var j = 0; j < topHeaders[i].subItems.length; j++) { %>
+				<p id="paragraph_<%=i%>_<%=j%>" name="subItems">
+					<input type="text" placeholder="" value="<%=topHeaders[i].subItems[j].name%>" name="<%=i%>[subItems][<%=j%>][name]">
+					<input type="text" placeholder="" value="<%=topHeaders[i].subItems[j].link%>" name="<%=i%>[subItems][<%=j%>][link]">
+					<a href="#" onclick="remove('paragraph_<%=i%>_<%=j%>')">(видалити)</a>
+				</p>
+				<% } %>	
+			</div>
+			<br/>
+			<hr/>
+			<br/>
+			<% } %>
+			<input type="submit" value="Зберегти">
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		function uuidv4() {
+		 	return 'xxxx-xxx-4xxx-yxx-xxxxxx'.replace(/[xy]/g, function(c) {
+		  		var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8); 
+		  		return v.toString(16); 
+			}); 
+		}
+
+	    function remove(id) {
+			var object = document.getElementById(id);
+			if (object)
+				object.remove();
+		}
+
+		function add(id) {
+			var object = document.getElementById(id);
+			if (object) {
+				var uniqueId = uuidv4();
+
+				var textInput = document.createElement("input");
+				textInput.type = "text";
+				textInput.placeholder = "Назва...";
+				textInput.name = id[id.length - 1] + "[subItems][" + String(object.childNodes.length) + "][name]";
+
+				var linkInput = document.createElement("input");
+				linkInput.type = "text";
+				linkInput.placeholder = "Адреса";
+				linkInput.name = "[" + id[id.length - 1] + "][subItems][" + String(object.childNodes.length) + "][link]";
+
+				var removeLink = document.createElement("a");
+				removeLink.href = "#";
+				removeLink.onclick = function() {
+					remove(uniqueId);
+				}
+				removeLink.innerHTML = "(видалити)"
+
+				var paragraph = document.createElement("p");
+				paragraph.id = uniqueId;
+				paragraph.appendChild(textInput);
+				paragraph.appendChild(linkInput);
+				paragraph.appendChild(removeLink);
+
+				object.appendChild(paragraph);
+			}
+		}
+	</script>
+</body>
+</html>

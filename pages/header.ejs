@@ -2,141 +2,28 @@
 <div id="header-div">
 <div id="header-panel">
 	<img id="site-logo" src="/pages/images/logo.png"/>
+	<% if (admin) { %>
+		<a href="/admin/edit-top-menu" style="color: lightblue; vertical-align: bottom; position: absolute; top: 3%;">Редагувати</a>
+	<% } %>
 </div>
 <div id="nav-dropdown">
 	<ul id="main-nav">
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn" onclick="location.href='#'">
-					Головна
-				</button>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Розташування
-				</button>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Історія
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Коледжу</a>
-					<a class="dropdown-item" href="#">Університету</a>
+		<% for (var i = 0; i < topMenu.length; i++) { %>
+			<li>
+				<div class="mydropdown">
+					<button class="dropbtn" onclick="location.href='<%=topMenu[i].link%>'">
+						<%=topMenu[i].buttonName%>
+					</button>
+					<% if (topMenu[i].subItems && topMenu[i].subItems.length > 0) { %>
+					<div class="dropdown-content">
+						<% for (var j = 0; j < topMenu[i].subItems.length; j++) { %>
+							<a class="dropdown-item" href="<%=topMenu[i].subItems[j].link%>"><%=topMenu[i].subItems[j].name%></a>
+						<% } %>
+					</div>
+					<% } %>
 				</div>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Адміністрація
-				</button>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Спеціальності
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Право</a>
-					<a class="dropdown-item" href="#">Підприємствоб торг. та БД</a>
-					<a class="dropdown-item" href="#">Фінанси, БС та страхування</a>
-					<a class="dropdown-item" href="#">Облік і опадкування</a>
-					<a class="dropdown-item" href="#">Прикладна математика</a>
-					<a class="dropdown-item" href="#">Комп'ютерні науки</a>
-					<a class="dropdown-item" href="#">Комп'ютерна інженерія</a>
-				</div>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Студенту
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Електронні підручники</a>
-					<a class="dropdown-item" href="#">Список груп</a>
-					<a class="dropdown-item" href="#">Розклад дзвінків</a>
-					<a class="dropdown-item" href="#">Реквізити для оплати</a>
-					<a class="dropdown-item" href="#">Курсова робота</a>
-					<a class="dropdown-item" href="#">Стипендії</a>
-					<a class="dropdown-item" href="#">Гуртожиток</a>
-					<a class="dropdown-item" href="#">Допомога у пошуку роботи</a>
-				</div>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Абітурієнту
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Підготовчі курси</a>
-					<a class="dropdown-item" href="#">Програма підготовки</a>
-					<a class="dropdown-item" href="#">Правила прийому 2018</a>
-					<a class="dropdown-item" href="#">Вартість навчання</a>
-					<a class="dropdown-item" href="#">Інформаційний пакет</a>
-					<a class="dropdown-item" href="#">Перелік документів</a>
-					<a class="dropdown-item" href="#">Списки вступників</a>
-					<a class="dropdown-item" href="#">Державне замовлення</a>
-				</div>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Самоврядування
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Студентський актив</a>
-					<a class="dropdown-item" href="#">Студпрофком</a>
-					<a class="dropdown-item" href="#">Міс коледжу</a>
-					<a class="dropdown-item" href="#">Кращі спортсмени</a>
-				</div>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Досягнення
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Курси та олімпіади</a>
-					<a class="dropdown-item" href="#">Ігри, квести та фестивалі</a>
-				</div>
-			</div>
-		</li>
-
-		<li>
-			<div class="mydropdown">
-				<button class="dropbtn">
-					Галерея
-				</button>
-				<div class="dropdown-content">
-					<a class="dropdown-item" href="#">Фото</a>
-					<a class="dropdown-item" href="#">Студенти на великій сцені</a>
-					<a class="dropdown-item" href="#">Інтервʼю директора</a>
-					<a class="dropdown-item" href="#">Чернівці</a>
-					<a class="dropdown-item" href="#">Випускники коледжу</a>
-					<a class="dropdown-item" href="#">День писемності</a>
-					<a class="dropdown-item" href="#">Ноктюрн</a>
-					<a class="dropdown-item" href="#">Міс Коледжу ЧНУ</a>
-				</div>
-			</div>
-		</li>
+			</li>
+		<% } %>
 	</ul>
 </div>
 </div>

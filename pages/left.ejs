@@ -3,24 +3,14 @@
 <div id="left-panel">
 	<div id="nav-menu">
 		<ul id="nav-list">
-			<p class="title">Меню</p>
-			<a href="#"><li>Головна</li></a>
-			<a href="#"><li>Вступ на навчання</li></a>
-			<a href="#"><li>Ліцензії</li></a>
-			<a href="#"><li>Сертифікати</li></a>
-			<a href="#"><li>Розташування</li></a>
-			<a href="#"><li>Історія</li></a>
-			<a href="#"><li>Адміністрація</li></a>
-			<a href="#"><li>Спеціальності</li></a>
-			<a href="#"><li>Студенту</li></a>
-			<a href="#"><li>Абітурієнту</li></a>
-			<a href="#"><li>Самоврядування</li></a>
-			<a href="#"><li>Досягнення</li></a>
-			<a href="#"><li>Медотична сторінка</li></a>
-			<a href="#"><li>Фінансово-економічна діяльність</li></a>
-			<a href="#"><li>Доступ до публічної інформації</li></a>
-			<a href="#"><li>Про нас пишуть</li></a>
-			<a href="#"><li>Галерея</li></a>
+			<% if (admin) { %>
+				<p class="title">Меню <a href="/admin/edit-left-menu" style="float: right; color: lightblue;">Редагувати</a></p>
+			<% } else { %>
+				<p class="title">Меню</p>
+			<% } %>
+			<% for (var i = 0; i < leftMenu.length; i++) { %>
+				<a href="<%=leftMenu[i].link%>"><li><%=leftMenu[i].name%></li></a>
+			<% } %>
 		</ul>
 	</div>
 
@@ -49,4 +39,9 @@
 
 	<a href="#" id="strada-link"><img src="/pages/MainPage/images/la_strada.gif"/></a>
 	<a href="#" id="strada-link"><img src="/pages/MainPage/images/la_strada2.gif"/></a>
+
+	<div id="contacts">
+		<p class="title">Статистика</p>
+		<a href="http://hotlog.ru/viewstat?id=2251042">Hotlog</a>
+	</div>
 </div>

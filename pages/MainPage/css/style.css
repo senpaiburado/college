@@ -5,7 +5,7 @@ body {
 
 #main-panel {
 	width: 1100px;
-	height: 3500px;
+	min-height: 3500px;
 	background-color: #ffffff;
 	margin: 0 auto;
 	box-shadow: 5px 5px 8px #888888, -5px 5px 8px #888888;
@@ -13,4 +13,98 @@ body {
 
 #content {
 	padding-top: 20px;
+	margin-left: 300px;
+}
+
+#director-text {
+	display: inline-block;
+	float: right;
+	position: absolute;
+	width: 424px;
+	height: 265px;
+	margin-left: 10px;
+}
+
+#chnu-images {
+	margin-top: 45px;
+}
+
+#chnu-images img {
+	margin-left: 15px;
+	margin-bottom: 12px;
+}
+
+#info-package {
+	text-transform: uppercase;
+	color: #2413DD;
+	font-size: 30px;
+	font-weight: bold;
+	margin-left: 136px;
+}
+
+#news-block {
+	margin-top: 80px;
+	width: 750px;
+}
+
+#news-block h1 {
+	float: left;
+	color: #2413DD;
+	font-size: 22px;
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	display: block;
+	width: 100%;
+	text-align: center;
+	height: 20px;
+	padding-bottom: 30px;
+}
+
+#news-block ul {
+	display: block;
+	padding-top: 30px;
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#news-block li {
+	display: flex;
+	align-items: center;
+	margin-left: 0;
+	padding-left: 0;
+	min-height: 170px;
+	border-bottom: 1px dotted gray;
+	width: 750px;
+}
+
+#img-containter {
+	
+	max-height: 85%;
+	width: 180px;
+	min-width: 180px;
+}
+
+#news-block img {
+	display: block;
+	max-height: 100%;
+	max-width: 180px;
+	margin: 0 auto;
+	
+	vertical-align: middle;
+}
+
+#news-block p {
+	margin-left: 15px;
+}
+
+#admin-panel {
+	width: 1100px;
+	height: 30px;
+	background-color: lightgray;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 21%;
 }
