@@ -108,3 +108,16 @@ body {
 	top: 0;
 	left: 21%;
 }
+
+#pages-list {
+	display: block;
+	list-style-type: none;
+  	margin: 0;
+  	padding: 0;
+	text-decoration: none;
+	margin-left: 45%;
+}
+
+#pages-list li {
+	display: inline;
+}

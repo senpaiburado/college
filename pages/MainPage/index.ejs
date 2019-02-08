@@ -10,14 +10,14 @@
 <body bgcolor="#e9e9e9">
 	<% if (admin) { %>
 	<span id="admin-panel">
-			<p style="float: left;">
-				Вітаємо, <%= adminId %>! 
-				<p style="float: right;">
-					<a href="/admin/postarticle">Додати статтю</a>
-					|
-					<a href="/admin/logout" onclick="return confirm('Ви дійсно хочете вийти?')">Вийти</a>
-				</p>
+		<p style="float: left;">
+			Вітаємо, <%= adminId %>! 
+			<p style="float: right;">
+				<a href="/admin/postarticle">Додати статтю</a>
+				|
+				<a href="/admin/logout" onclick="return confirm('Ви дійсно хочете вийти?')">Вийти</a>
 			</p>
+		</p>
 	</span>
 	<% } %>
 	<%- include("../header.ejs") %>
@@ -71,12 +71,37 @@
 			</div>
 			<% if (pagesCount > 1) { %>
 			<ul id="pages-list">
-				<% for (var i = 1; i < pagesCount + 1; i++) { %>
-				<% if (page === i) { %>
-				<li><%= i %></li>
-				<% } else { %>
-				<li><a href="/?page=<%=i%>"><%= i %></a></li>
-				<% } %>
+				<% if (pagesCount <= 10) { %>
+					<% for (var i = 1; i < pagesCount + 1; i++) { %>
+						<% if (page === i) { %>
+							<li><%= i %></li>
+						<% } else { %>
+							<li><a href="/?page=<%=i%>"><%= i %></a></li>
+						<% } %>
+
+					<% } } else { %>
+						<% if (page - 2 > 0) { %>
+							<% if (page - 1 > 1) { %>
+								<li><a href="/?page=1">1</a></li>
+							<% } %>
+							<li>...</li>
+						<% } %>
+
+						<% if (page - 1 > 0) { %>
+							<li><a href="/?page=<%=page-1%>"><%= page - 1 %></a></li>
+						<% } %>
+
+						<li><%= page %></li>
+
+						<% if (page + 1 !== pagesCount + 1) { %>
+							<li><a href="/?page=<%=page+1%>"><%= page + 1 %></a></li>
+						<% } %>
+						<% if (page + 2 <= pagesCount + 1 && page !== pagesCount - 1) { %>
+							<li>...</li>
+						<% } %>
+						<% if (page + 3 <= pagesCount + 1) { %>
+							<li><a href="/?page=<%=pagesCount%>"><%= pagesCount %></a></li>
+						<% } %>
 				<% } %>
 			</ul>
 			<% } %>
