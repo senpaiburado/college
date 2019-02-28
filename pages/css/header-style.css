@@ -6,24 +6,26 @@
 
 #header-panel {
 	width: 1100px;
-	height: 145px;
+	height: 233px;
 	top: 40px;
-	background-image: linear-gradient(#0B3776, #0E489B);
+	background-color: #003954;
 }
 
 #nav-dropdown {
 	width: 1100px;
-	height: 35px;
-	background-image: linear-gradient(#0B3776, #0E489B);
+	height: 38px;
+	background-color: #003954;
 	margin: 0 auto;
 }
 
 #site-logo {
-	float: right;
+	width: 1100px;
+	height: 230px;
 }
 
 #main-nav {
 	margin-left: -10px;
+	padding-top: 3px;
 }
 
 #main-nav li {

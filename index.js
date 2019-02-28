@@ -73,18 +73,25 @@ app.get("/", function(request, response) {
 		loadLeftSideFromDb(function(leftMenuArray) {
 			getNews(newsPage, function(result, newsCount) {
 				loadPackageInfo(function(doc) {
-					console.log("Res: ", newsCount % 8 == 0 ? Math.floor(newsCount / 8) : Math.floor(newsCount / 8) + 1);
-					response.render(path.join(__dirname + "/pages/MainPage/index.ejs"), {
-						maintenance: config["is_under_maintenance"],
-						info_package_link: doc.link,
-						info_package_text: doc.name,
-						news: result,
-						topMenu: topMenuData,
-						leftMenu: leftMenuArray,
-						page: newsPage,
-						pagesCount: newsCount % 8 == 0 ? Math.floor(newsCount / 8) : Math.floor(newsCount / 8) + 1,
-						admin: isAdmin,
-						adminId: adminName
+					loadContacts(function(contacts) {
+						console.log("Res: ", newsCount % 8 == 0 ? Math.floor(newsCount / 8) : Math.floor(newsCount / 8) + 1);
+						response.render(path.join(__dirname + "/pages/MainPage/index.ejs"), {
+							maintenance: config["is_under_maintenance"],
+							info_package_link: doc.link,
+							info_package_text: doc.name,
+							news: result,
+							topMenu: topMenuData,
+							leftMenu: leftMenuArray,
+							page: newsPage,
+							pagesCount: newsCount % 8 == 0 ? Math.floor(newsCount / 8) : Math.floor(newsCount / 8) + 1,
+							admin: isAdmin,
+							adminId: adminName,
+							contacts: {
+								address: contacts ? contacts.address : "",
+								telephone: contacts ? contacts.telephone : "",
+								email: contacts ? contacts.email : ""
+							}
+						});
 					});
 				});
 			});
@@ -115,13 +122,20 @@ app.get("/article/:id", function(request, response) {
 
 			loadTopMenuFromDb(function(topMenuData) {
 				loadLeftSideFromDb(function(leftMenuArray) {
-					response.render(path.join(__dirname + "/pages/index.ejs"), {
-						topMenu: topMenuData,
-						leftMenu: leftMenuArray,
-						admin: isAdmin,
-						adminId: adminName,
-						path: "article_" + result._id + ".ejs",
-						name: result.name
+					loadContacts(function(contacts) {
+						response.render(path.join(__dirname + "/pages/index.ejs"), {
+							topMenu: topMenuData,
+							leftMenu: leftMenuArray,
+							admin: isAdmin,
+							adminId: adminName,
+							path: "article_" + result._id + ".ejs",
+							name: result.name,
+							contacts: {
+								address: contacts ? contacts.address : "",
+								telephone: contacts ? contacts.telephone : "",
+								email: contacts ? contacts.email : ""
+							}
+						});
 					});
 				});
 			});
@@ -384,6 +398,43 @@ app.post("/admin/edit-top-menu", function(request, response) {
 				})
 			}
 		});
+	})
+});
+
+function loadContacts(callback) {
+	db.collection("contact").find().toArray(function(err, result) {
+		if (!result.length)
+			callback(null);
+		else {
+			callback({
+				address: result[0].address,
+				telephone: result[0].telephone,
+				email: result[0].email
+			});
+		}
+	})
+}
+
+app.get("/admin/edit-contact", function(request, response) {
+	loadContacts(function(result) {
+		response.render(path.join(__dirname + "/pages/admin/menus/edit_contacts.ejs"), {
+			address: result ? result.address : "",
+			telephone: result ? result.telephone : "",
+			email: result ? result.email : ""
+		});
+	});
+});
+
+app.post("/admin/edit-contact", function(request, response) {
+	var body = request.body;
+	db.collection("contact").drop(function(err, result) {
+		if (err)
+			console.log(err);
+		db.collection("contact").insertOne(body, function(err, result) {
+			if (err)
+				console.log(err);
+			response.redirect("/");
+		})
 	})
 });
 
