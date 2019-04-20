@@ -7,7 +7,7 @@ body {
 
 #main-panel {
 	width: 1100px;
-	min-width: 3400px;
+	min-height: 3400px;
 	overflow: auto;
 	overflow-x: hidden;
 	background-color: #ffffff;
