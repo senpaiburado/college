@@ -25,7 +25,8 @@ body {
 }
 .banner {
 	height: 80px;
-	padding-right: 11px;
+	padding-right: 5px;
+	width: 278px;
 }
 
 .banner2 {

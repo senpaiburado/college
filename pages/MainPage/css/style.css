@@ -35,7 +35,7 @@ body {
 }
 
 #chnu-images img {
-	margin-left: 15px;
+	
 	margin-bottom: 12px;
 }
 
@@ -129,7 +129,8 @@ body {
 
 .banner {
 	height: 80px;
-	padding-right: 11px;
+	width: 278px;
+	padding-right: 5px;
 }
 
 .banner2 {
