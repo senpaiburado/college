@@ -83,7 +83,7 @@ app.get("/", function(request, response) {
 							topMenu: topMenuData,
 							leftMenu: leftMenuArray,
 							page: newsPage,
-							pagesCount: newsCount % 12 == 0 ? Math.floor(newsCount / 12) : Math.floor(newsCount / 12) + 1,
+							pagesCount: newsCount % 13 == 0 ? Math.floor(newsCount / 13) : Math.floor(newsCount / 13) + 1,
 							admin: isAdmin,
 							adminId: adminName,
 							contacts: {
@@ -543,7 +543,7 @@ function loadLeftSideFromDb(callback) {
 
 function getNews(page, callback) {
 	console.log("Loading news on page " + page);
-	db.collection("news").find({}, {"sort": {date: -1}}).skip(page === 1 ? 0 : (page - 1) * 12).limit(12).toArray(function(err, result) {
+	db.collection("news").find({}, {"sort": {date: -1}}).skip(page === 1 ? 0 : (page - 1) * 13).limit(13).toArray(function(err, result) {
 		if (err)
 			console.log("Error: " + err);
 		else {
