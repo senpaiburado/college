@@ -130,6 +130,7 @@ app.get("/article/:id", function(request, response) {
 							adminId: adminName,
 							path: "article_" + result._id + ".ejs",
 							name: result.name,
+							id: result._id,
 							contacts: {
 								address: contacts ? contacts.address : "",
 								telephone: contacts ? contacts.telephone : "",
@@ -198,6 +199,38 @@ app.get("/admin/logout", function(request, response) {
 app.get("/admin/postarticle", function(request, response) {
 	response.render(path.join(__dirname + "/pages/admin/article/add_article.ejs"));
 });
+app.get("/admin/updatearticle/:id", (request, response) => {
+	var id = String(request.params.id);
+	if (id && id.length === 24) {
+		db.collection("articles").findOne({_id: MongoObjectId(id)}, function(err, result) {
+			if (err)
+				console.log(err);
+
+			if (!result) {
+				response.redirect("/");
+				return;
+			}
+
+			var isAdmin = false;
+			var adminName = "";
+
+			if (request.session.name) {
+				console.log(request.session);
+				isAdmin = true;
+				adminName = request.session.name;
+				console.log("Hello, admin ", adminName);
+			}
+			console.log(result)
+			response.render(path.join(__dirname + "/pages/admin/article/update_article.ejs"), {
+				title: result.name,
+				body: String(fs.readFileSync(path.join(__dirname + "/pages/articles/article_" + result._id + ".ejs"))),
+				id: id
+			});
+		});
+	} else {
+		response.redirect("/");
+	}
+});
 
 app.post("/admin/postarticle", function(request, response) {
 	console.log("Process /admin/postarticle...");
@@ -216,6 +249,23 @@ app.post("/admin/postarticle", function(request, response) {
 					console.log("Error: " + err);
 				else
 					response.redirect("/article/" + result.insertedId);
+			});
+		}
+	});
+});
+app.post("/admin/updatearticle", function(request, response) {
+	console.log("Process /admin/updatearticle...");
+	const data = request.body;
+
+	db.collection("articles").updateOne({_id: MongoObjectId(data.id)}, {$set: {name: data.name}}, function(err, result) {
+		if (err) 
+			console.log("Error: " + err);
+		else {
+			fs.writeFile("pages/articles/article_" + data.id + ".ejs", data.content, function(err) {
+				if (err)
+					console.log("Error: " + err);
+				else
+					response.redirect("/article/" + data.id);
 			});
 		}
 	});

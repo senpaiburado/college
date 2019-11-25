@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Редагувати статтю</title>
+	<script src="/pages/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+	<div id="container">
+		<form method="post" action="/admin/updatearticle" enctype="multipart/form-data">
+			<p><label>Назва статті: </label><input type="text" name="name" style="width: 350px;" value="<%=title%>"></p>
+            <textarea name="content" id="editor"></textarea>
+            <input hidden name="id" value="<%=id%>">
+			<input type="submit" value="Оновити статтю">
+		</form>
+	</div>
+    
+    <div id="hiddenData" style="display: none;"><%- body %></div>
+    <script type="text/javascript">
+        CKEDITOR.replace("editor", {
+        	width: "780px",
+        	height: "600px",
+        	marginLeft: "40%"
+        });
+        CKEDITOR.instances.editor.setData(document.getElementById("hiddenData").innerHTML);
+    </script>
+</body>
+</html>

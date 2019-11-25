@@ -14,6 +14,9 @@
 		<div id="page-content">
 			<%- include("articles/" + path)%>
 			<hr/>
+			<% if (admin) { %>
+				<a href="/admin/updatearticle/<%= id %>">Редагувати</a>
+			<% } %>
 		</div>
 		<div style="display: flex; justify-content: space-between; float: left; margin-top: 600px;">
 			<a href="http://mon.gov.ua/"><img class="banner" src="/pages/MainPage/images/monu.jpeg"/></a>
