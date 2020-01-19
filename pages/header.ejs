@@ -1,29 +1,107 @@
 <link rel="stylesheet" type="text/css" href="/pages/css/header-style.css">
+
 <div id="header-div">
-<div id="header-panel">
-	<img id="site-logo" src="/pages/images/logo.jpg"/>
-	<% if (admin) { %>
-		<a href="/admin/edit-top-menu" style="color: lightblue; vertical-align: bottom; position: absolute; top: 3%;">Редагувати</a>
-	<% } %>
-</div>
-<div id="nav-dropdown">
-	<ul id="main-nav">
-		<% for (var i = 0; i < topMenu.length; i++) { %>
+	<div id="header-panel">
+		<img id="site-logo" src="/pages/images/logo.jpg" />
+		<% if (admin) { %>
+		<a href="/admin/edit-top-menu"
+			style="color: lightblue; vertical-align: bottom; position: absolute; top: 3%;">Редагувати</a>
+		<% } %>
+	</div>
+
+
+
+	<div id="nav-dropdown">
+		<div id="nav-dropdown-mob">
+			<div class="container-menu">
+				<div class="container1" onclick="myFunction(this)">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+				</div>
+			</div>
+			<div class="hide-head ">
+				<div id="q mySidenav" class="tabcontent tabcontent-text ">
+
+					<ul id="main-nav-mob">
+						<% for (var i = 0; i < topMenu.length; i++) { %>
+						<li>
+							<div class="mydropdown ">
+								<a class="dropbtn-mob" onclick="location.href='<%=topMenu[i].link%>'">
+									<%=topMenu[i].buttonName%>
+								</a>
+
+							</div>
+						</li>
+						<% } %>
+					</ul>
+				</div>
+
+
+			</div>
+		</div>
+		<ul id="main-nav">
+			<% for (var i = 0; i < topMenu.length; i++) { %>
 			<li>
-				<div class="mydropdown">
+				<div class="mydropdown ">
 					<button class="dropbtn" onclick="location.href='<%=topMenu[i].link%>'">
 						<%=topMenu[i].buttonName%>
 					</button>
 					<% if (topMenu[i].subItems && topMenu[i].subItems.length > 0) { %>
 					<div class="dropdown-content">
 						<% for (var j = 0; j < topMenu[i].subItems.length; j++) { %>
-							<a class="dropdown-item" href="<%=topMenu[i].subItems[j].link%>"><%=topMenu[i].subItems[j].name%></a>
+						<a class="dropdown-item"
+							href="<%=topMenu[i].subItems[j].link%>"><%=topMenu[i].subItems[j].name%></a>
 						<% } %>
 					</div>
 					<% } %>
 				</div>
 			</li>
-		<% } %>
-	</ul>
+			<% } %>
+		</ul>
+	</div>
 </div>
-</div>
+
+<script>
+	function openCity(evt, cityName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+	function closeTab() {
+		var tab = document.getElementsByClassName("tabcontent ")[0];
+		tab.style.height = "0px";
+		tab.style.top = "300px";
+		x.classList.toggle("change");
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	// document.getElementById("defaultOpen").click();
+
+	function myFunction(x) {
+		x.classList.toggle("change");
+		var tab = document.getElementsByClassName("tabcontent ")[0];
+
+
+		if (tab.style.top === "300px" || tab.style.top === "") {
+			tab.style.height = "1100px";
+			tab.style.top = "330px";
+
+		}
+		else
+			closeTab();
+	}
+	var tab = document.getElementsByClassName("tabcontent")[0];
+	console.log(tab.style)
+
+
+</script>

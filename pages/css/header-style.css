@@ -31,7 +31,6 @@
 	list-style: none;
 	padding-right: 10px;
 	display: inline;
-
 	font-size: 15px;
 	color: white;
 	font-weight: bold;
@@ -57,9 +56,9 @@
 	opacity: 0;
 	display: block;
 	position: absolute;
-	background-color: rgb(211,211,211);
+	background-color: rgb(211, 211, 211);
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
 
@@ -71,7 +70,7 @@
 }
 
 .dropdown-content a:hover {
-	background-color: rgb(51,51,51);
+	background-color: rgb(51, 51, 51);
 	color: white;
 }
 
@@ -87,4 +86,107 @@
 
 .mydropdown:hover .dropbtn {
 	background-color: #104DA5;
+}
+
+.hide-head {
+	display: none;
+}
+
+@media screen and (max-width: 1000px) {
+	#site-logo, #header-div, #header-panel {
+		width: 100%;
+	}
+	#nav-dropdown {
+		width: 100%;
+		height: 100px;
+	}
+	#nav-dropdown button {
+		display: none;
+		
+	}
+	#nav-dropdown-mob button {
+		display: flex;
+		flex-direction: column;
+	}
+	.container-menu {
+		display: flex;
+		justify-content: center;
+	}
+	.container1 {
+		margin-top: 10px;
+	}
+	.bar1, .bar2, .bar3 {
+		width: 70px;
+		height: 10px;
+		background-color: #fff;
+		margin: 12px 0;
+		transition: 0.4s;
+	}
+	.change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-16px, 12px);
+		transform: rotate(-45deg) translate(-16px, 12px);
+	}
+	.change .bar2 {
+		opacity: 0;
+	}
+	.change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-16px, -16px);
+		transform: rotate(45deg) translate(-16px, -16px);
+	}
+	.tabcontent {
+		display: block;
+		position: absolute;
+		width: 100%;
+		left: 0px;
+		z-index: 49;
+		height: 0px;
+		background-color: #003954;
+		transition: 0.7s;
+		top: 330px;
+		z-index: 1;
+	}
+	.tabcontent-text {
+		overflow-x: hidden;
+		line-height: 87px;
+		display: block;
+		
+	}
+	.container {
+		display: block;
+		display: inline-block;
+		cursor: pointer;
+	}
+	.hide-head {
+		display: block;
+	}
+
+	#main-nav-mob {
+		padding-left: 0px;
+	}
+	
+	#main-nav-mob li {
+		width: 100%;
+		list-style: none;
+		color: white;
+		font-weight: bold;
+	}
+	#main-nav-mob li div {
+		margin-left: 13px;
+	}
+	.dropbtn-mob {
+		background-color: transparent;
+		color: white;
+		font-size: 40pt;
+		font-weight: bold;
+		border: none;
+		height: 35px;
+		text-align: top;
+	}
+	#main-nav-mob li:hover {
+		
+		color: black;
+		background-color: white;
+	}
+
+
 }
