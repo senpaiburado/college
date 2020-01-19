@@ -1,18 +1,24 @@
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>Коледж ЧНУ імені Юрія Федьковича</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/pages/MainPage/css/style.css">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 </head>
+
 <body background="/pages/background.jpg">
 	<% if (admin) { %>
 	<span id="admin-panel">
 		<p style="float: left;">
-			Вітаємо, <%= adminId %>! 
+			Вітаємо, <%= adminId %>!
 			<p style="float: right;">
 				<a href="/admin/postarticle">Додати статтю</a>
 				|
@@ -25,105 +31,276 @@
 	<div id="main-panel">
 		<%- include ../left.ejs %>
 
+
+
+
+
 		<div id="content">
 			<% if (maintenance) { %>
 			<%- include ../temporary_not_working/index.ejs %>
 			<% } else { %>
 			<div id="director-part">
-				<img src="/pages/MainPage/images/director.jpg" height="265px" />
-				<div id="director-text">
-					<p style="text-align: justify; text-indent: 36pt;"><span style="font-size: 10pt;">Коледж Чернівецького національного університету імені Юрія Федьковича є структурним підрозділом університету без статусу юридичної особи і надає освітні послуги, пов'язані з одержанням вищої освіти на рівні кваліфікаційних вимог до молодшого спеціаліста з одночасним наданням повної загальної середньої освіти. Наш навчальний заклад має відповідний рівень кадрового та матеріально-технічного забезпечення.<br/></span><span style="font-size: 10pt; text-indent: 36pt;">&nbsp; &nbsp; &nbsp;Юридичною датою створення Коледжу є 2001 рік, проте за такий короткий період існування він посів одне з провідних місць серед вищих навчальних закладів І-ІІ рівнів акредитації.</span></p>
-					<p style="text-align: justify; text-indent: 36pt;"><em><span style="font-size: 10pt;">Директор Коледжу ЧНУ, доцент - О.В. Собчук</span></em></p>
-					<p style="text-indent: 36pt; text-align: right;"><span style="font-size: 10pt;"><a href="http://college-chnu.cv.ua/article/5c5cdf31c1634b0eaed26c84">Детальніше</a></span></p>
+				<div class="director-img director-img-mob">
+					<img src="/pages/MainPage/images/director.jpg" height="265px" />
+				</div>
+				<div id="director-text ">
+					<div class="mob-vers-director " style="font-size: 10pt; padding-right: 20px;">
+						<p style="text-align: justify; text-indent: 36pt;">Коледж Чернівецького національного
+							університету імені Юрія Федьковича є структурним підрозділом університету без статусу
+							юридичної особи і надає освітні послуги, пов'язані з одержанням вищої освіти на рівні
+							кваліфікаційних вимог до молодшого спеціаліста з одночасним наданням повної загальної
+							середньої освіти. Наш навчальний заклад має відповідний рівень кадрового та
+							матеріально-технічного забезпечення.<br /></span><span style="text-indent: 36pt;">&nbsp;
+								&nbsp; &nbsp;Юридичною датою створення Коледжу є 2001 рік, проте за такий короткий
+								період існування він посів одне з провідних місць серед вищих навчальних закладів І-ІІ
+								рівнів акредитації.</span></p>
+						<p style="text-align: justify; text-indent: 36pt;"><em>Директор Коледжу ЧНУ, доцент - О.В.
+								Собчук</span></em></p>
+						<p style="text-indent: 36pt; text-align: right;">
+							<div class="PC-V">
+								<a
+									href="http://college-chnu.cv.ua/article/5c5cdf31c1634b0eaed26c84">Детальніше</a></span>
+						</p>
+					</div>
+					<div class="mob-V">
+						<button
+							onclick='location.href="http://college-chnu.cv.ua/article/5c5cdf31c1634b0eaed26c84"'>Детальніше</button></span>
+						
+					</div>
 				</div>
 			</div>
-			<div id="chnu-images">
-				<img src="/pages/MainPage/images/chnu.jpg" width="780" height="248"/>
-				<p>
-					<a id="info-package" href="<%=info_package_link%>"><%=info_package_text%></a>
-					<% if (admin) { %>
-					<a href="/admin/edit-package-info">(редагувати)</a>
-					<% } %>
-				</p>
+		</div>
+		<div id="chnu-images">
+			<div class="PC-V-img">
+				<img src="/pages/MainPage/images/chnu.jpg" />
 			</div>
-			<div id="news-block">
-				<p>
-					<h1>Новини</h1>
-					<% if (admin) { %>
-					<a href="/admin/addnew" style="float: right;">(додати)</a>
-					<% } %>
-				</p>
-				<ul>
-					<% for (var i = 0; i < news.length; i++) { %>
-					<li>
-						<p style="font-size: 11px; position: absolute; top: 0; left: -15px;"><%= news[i].date.toISOString().split('T')[0] %></p>
-						<div id="img-containter">
-							<% if (admin) { %>
-							<p>
-								<a href="/admin/remove-news/<%=news[i]._id%>" style="position: relative; top: 0; left: -10;" onclick="return confirm('Підтверджуєте видалення новини?')">(видалити)</a>
-								<a href="/admin/addnew/?id=<%=news[i]._id%>" style="position: relative; top: -10; left: -10;">(редагувати)</a>
-							</p>
-							<% } %>
-							<img src="<%=news[i].image%>"/>
-						</div>
-						<p><%- news[i].text %></p>
-					</li>
-					<% } %>
-				</ul>
+			<div class="mob-V-img">
+				<img src="/pages/MainPage/images/chnu.jpg" style="width: 100%;" />
 			</div>
-			<% if (pagesCount > 1) { %>
-			<ul id="pages-list">
-				<% if (pagesCount <= 10) { %>
-					<% for (var i = 1; i < pagesCount + 1; i++) { %>
-						<% if (page === i) { %>
-							<li><%= i %></li>
-						<% } else { %>
-							<li><a href="/?page=<%=i%>"><%= i %></a></li>
+			<p>
+				<a id="info-package" href="<%=info_package_link%>"><%=info_package_text%></a>
+				<% if (admin) { %>
+				<a href="/admin/edit-package-info">(редагувати)</a>
+				<% } %>
+			</p>
+		</div>
+		<div id="news-block">
+			<p>
+				<h1>Новини</h1>
+				<% if (admin) { %>
+				<a href="/admin/addnew" style="float: right;">(додати)</a>
+				<% } %>
+			</p>
+			<ul>
+				<% for (var i = 0; i < news.length; i++) { %>
+				<li>
+					<p class="mob-news-date" style="font-size: 11px; position: absolute; top: -5; left: -15px;">
+						<%= news[i].date.toISOString().split('T')[0] %></p>
+					<div id="img-containter">
+						<% if (admin) { %>
+						<p>
+							<a href="/admin/remove-news/<%=news[i]._id%>" style="position: relative; top: 0; left: -10;"
+								onclick="return confirm('Підтверджуєте видалення новини?')">(видалити)</a>
+							<a href="/admin/addnew/?id=<%=news[i]._id%>"
+								style="position: relative; top: -10; left: -10;">(редагувати)</a>
+						</p>
 						<% } %>
-
-					<% } } else { %>
-						<% if (page - 2 > 0) { %>
-							<% if (page - 1 > 1) { %>
-								<li><a href="/?page=1">1</a></li>
-							<% } %>
-							<li>...</li>
-						<% } %>
-
-						<% if (page - 1 > 0) { %>
-							<li><a href="/?page=<%=page-1%>"><%= page - 1 %></a></li>
-						<% } %>
-
-						<li><%= page %></li>
-
-						<% if (page + 1 !== pagesCount + 1) { %>
-							<li><a href="/?page=<%=page+1%>"><%= page + 1 %></a></li>
-						<% } %>
-						<% if (page + 2 <= pagesCount + 1 && page !== pagesCount - 1) { %>
-							<li>...</li>
-						<% } %>
-						<% if (page + 3 <= pagesCount + 1) { %>
-							<li><a href="/?page=<%=pagesCount%>"><%= pagesCount %></a></li>
-						<% } %>
+						<img src="<%=news[i].image%>" />
+					</div>
+					<div class="mob-news-text">
+					<p><%- news[i].text %></p>
+					</div>
+				</li>
 				<% } %>
 			</ul>
+		</div>
+		<div id="pages-list-block">
+		<% if (pagesCount > 1) { %>
+		<ul id="pages-list" class="pc-type">
+			<% if (pagesCount <= 10) { %>
+			<% for (var i = 1; i < pagesCount + 1; i++) { %>
+			<% if (page === i) { %>
+			<li><%= i %></li>
+			<% } else { %>
+			<li><a href="/?page=<%=i%>"><%= i %></a></li>
+			<% } %>
+
+			<% } } else { %>
+			<% if (page - 2 > 0) { %>
+			<% if (page - 1 > 1) { %>
+			<li><a href="/?page=1">1</a></li>
+			<% } %>
+			<li>...</li>
+			<% } %>
+
+			<% if (page - 1 > 0) { %>
+			<li><a href="/?page=<%=page-1%>"><%= page - 1 %></a></li>
+			<% } %>
+
+			<li><%= page %></li>
+
+			<% if (page + 1 !== pagesCount + 1) { %>
+			<li><a href="/?page=<%=page+1%>"><%= page + 1 %></a></li>
+			<% } %>
+			<% if (page + 2 <= pagesCount + 1 && page !== pagesCount - 1) { %>
+			<li>...</li>
+			<% } %>
+			<% if (page + 3 <= pagesCount + 1) { %>
+			<li><a href="/?page=<%=pagesCount%>"><%= pagesCount %></a></li>
 			<% } %>
 			<% } %>
-		</div>
-		<div style="display: flex; justify-content: space-between; float: left; margin-top: 130px;">
-			<a href="http://mon.gov.ua/"><img class="banner" src="/pages/MainPage/images/monu.jpeg"/></a>
-			<a href="http://chnu.edu.ua/"><img class="banner" src="/pages/MainPage/images/chnu_banner.jpeg"/></a>
-			<a href="http://oblosvita.com/"><img class="banner" src="/pages/MainPage/images/oda.jpeg"/></a>
-			<a href="http://testportal.gov.ua/"><img class="banner" src="/pages/MainPage/images/quality.jpg"></a>
-		</div>
-		<div style="display: flex; justify-content: space-between; float: left; margin-left: 10px;">
-			<a href="http://la-strada.org.ua/"><img class="banner2" src="/pages/MainPage/images/la_strada.gif"/></a>
-			<a href="http://www.chnu.edu.ua/index.php?page=ua/gum_osvita/02%20stud_parlam"><img class="banner2" src="/pages/MainPage/images/parlament.jpg"/></a>
-			<a href="http://studprofkom.cv.ua/"><img class="banner2" src="/pages/MainPage/images/profspilka.jpg"/></a>
-			<a href="http://pedpresa.com.ua/"><img class="banner2" src="/pages/MainPage/images/ped-presa.jpg"/></a>
-			<a href="http://www.stud-job.cv.ua/"><img class="banner2" src="/pages/MainPage/images/robota.jpg"/></a>
-			<a href="http://la-strada.org.ua/"><img class="banner2" src="/pages/MainPage/images/la_strada2.gif"/></a>
+		</ul>
+		<ul id="pages-list" class="mob-type">
+			<% if (pagesCount <= 4) { %>
+			<% for (var i = 1; i < pagesCount + 1; i++) { %>
+			<% if (page === i) { %>
+			<li><%= i %></li>
+			<% } else { %>
+			<li><a href="/?page=<%=i%>"><%= i %></a></li>
+			<% } %>
+
+			<% } } else { %>
+			<% if (page - 2 > 0) { %>
+			<% if (page - 1 > 1) { %>
+			<li><a href="/?page=1">1</a></li>
+			<% } %>
+			<li>...</li>
+			<% } %>
+
+			<% if (page - 1 > 0) { %>
+			<li><a href="/?page=<%=page-1%>"><%= page - 1 %></a></li>
+			<% } %>
+
+			<li><%= page %></li>
+
+			<% if (page + 1 !== pagesCount + 1) { %>
+			<li><a href="/?page=<%=page+1%>"><%= page + 1 %></a></li>
+			<% } %>
+			<% if (page + 2 <= pagesCount + 1 && page !== pagesCount - 1) { %>
+			<li>...</li>
+			<% } %>
+			<% if (page + 3 <= pagesCount + 1) { %>
+			<li><a href="/?page=<%=pagesCount%>"><%= pagesCount %></a></li>
+			<% } %>
+			<% } %>
+		</ul>
+		<% } %>
+	</div>
+		<% } %>
+
+
+		<div class="hide">
+			<div class="baner-mob ">
+				<div class="blok">
+					<a href="http://vstup.chnu.edu.ua/?page_id=1980" id="courses-link"><img
+							src="/pages/MainPage/images/courses.jpg" /></a>
+					<div id="SinoptikInformer" style="width:258px; " class="SinoptikInformer type1c1">
+						<div class="siHeader">
+							<div class="siLh">
+								<div class="siMh"><a onmousedown="siClickCount();" class="siLogo"
+										href="https://ua.sinoptik.ua/" target="_blank" rel="nofollow" title="Погода">
+									</a>Погода <span id="siHeader"></span></div>
+							</div>
+						</div>
+						<div class="siBody"><a onmousedown="siClickCount();"
+								href="https://ua.sinoptik.ua/погода-чернівці" title="Погода у Чернівцях"
+								target="_blank">
+								<div class="siCity">
+									<div class="siCityName"><span>Чернівці</span></div>
+									<div id="siCont0" class="siBodyContent">
+										<div class="siLeft">
+											<div class="siTerm"></div>
+											<div class="siT" id="siT0"></div>
+											<div id="weatherIco0"></div>
+										</div>
+										<div class="siInf">
+											<p>вологість: <span id="vl0"></span></p>
+											<p>тиск: <span id="dav0"></span></p>
+											<p>вітер: <span id="wind0"></span></p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="siLinks">Погода на 10 днів від <a
+								href="https://ua.sinoptik.ua/погода-чернівці/10-днів" title="Погода на 10 днів"
+								target="_blank" onmousedown="siClickCount();">sinoptik.ua</a></div>
+					</div>
+				</div>
+				<a href="https://www.netacad.com/" id="cisco-banner"><img src="/pages/MainPage/images/cisco.jpg"
+						width="256" height="443"></img></a>
+			</div>
+			<div class="baner-mob2">
+				<div id="contacts">
+					<p class="title">Контакти<%if (admin) { %><a href="/admin/edit-contact"
+							style="float: right; color: lightblue;">Редагувати</a><% } %></p>
+					<p id="contacts-text"><%- contacts.address %><br />Тел/факс: <%= contacts.telephone %><br />E-Mail:
+						<%= contacts.email %></p>
+					<a href="http://www.ukr.net/theheavenshundred.html" style="padding-left: 25px;"><img
+							src="/pages/MainPage/images/baner-sotnya.png" /></a>
+				</div>
+
+
+
+				<div class="siFooter">
+					<div class="siLf">
+						<div class="siMf"></div>
+					</div>
+				</div>
+
+				<script type="text/javascript" charset="UTF-8"
+					src="//sinoptik.ua/informers_js.php?title=4&amp;wind=3&amp;cities=303028948&amp;lang=ua"></script>
+				<div class="calendar-mob">
+					<iframe
+						src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=255&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=b07rd6l47ees1l3p5qrnj0tf94%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=Europe%2FKiev"
+						style="border:solid 1px gray" width="255" height="258" frameborder="0" scrolling="no"
+						id="calendar" style="margin-top: 20px"></iframe>
+				</div>
+			</div>
+			<!-- <div id="partners">
+		<p class="title">Партнери</p>
+		<a href="http://mon.gov.ua/"><img src="/pages/MainPage/images/monu.jpeg" style="width: 100%;"/></a>
+		<a href="http://chnu.edu.ua/""><img src="/pages/MainPage/images/chnu_banner.jpeg" style="width: 100%;"/></a>
+		<a href="http://oblosvita.com/""><img src="/pages/MainPage/images/oda.jpeg" style="width: 100%;"/></a>
+		<a href="http://pedpresa.com.ua/""><img src="/pages/MainPage/images/pedrpesacom_banner.gif" style="width: 100%;"/></a>
+		<a href="http://studprofkom.cv.ua/"><img src="/pages/MainPage/images/profspilka.jpeg" style="width: 100%;"/></a>
+		<a href="http://newformaty.com.ua/"><img src="/pages/MainPage/images/new_formats.jpeg" style="width: 100%;"/></a>
+	</div> -->
+
+
+			<div class="stat pc-type">
+				<div id="contacts-mob">
+					<p class="title">Статистика</p>
+					<a href="http://hotlog.ru/viewstat?id=2251042">Hotlog</a>
+				</div>
+
+			</div>
 		</div>
 	</div>
-</div>
+
+
+		<div class="advertising">
+			<div class="adv-small" style="display: flex; justify-content: space-between; float: left; margin-top: 130px;">
+				<a href="http://mon.gov.ua/"><img class="banner" src="/pages/MainPage/images/monu.jpeg" /></a>
+				<a href="http://chnu.edu.ua/"><img class="banner" src="/pages/MainPage/images/chnu_banner.jpeg" /></a>
+				<a href="http://oblosvita.com/"><img class="banner" src="/pages/MainPage/images/oda.jpeg" /></a>
+				<a href="http://testportal.gov.ua/"><img class="banner" src="/pages/MainPage/images/quality.jpg"></a>
+			</div>
+			<div class="adv-big" style="display: flex; justify-content: space-between; float: left; margin-left: 10px;">
+				<a href="http://la-strada.org.ua/"><img class="banner2"
+						src="/pages/MainPage/images/la_strada.gif" /></a>
+				<a href="http://www.chnu.edu.ua/index.php?page=ua/gum_osvita/02%20stud_parlam"><img class="banner2"
+						src="/pages/MainPage/images/parlament.jpg" /></a>
+				<a href="http://studprofkom.cv.ua/"><img class="banner2"
+						src="/pages/MainPage/images/profspilka.jpg" /></a>
+				<a href="http://pedpresa.com.ua/"><img class="banner2" src="/pages/MainPage/images/ped-presa.jpg" /></a>
+				<a href="http://www.stud-job.cv.ua/"><img class="banner2" src="/pages/MainPage/images/robota.jpg" /></a>
+				<a href="http://la-strada.org.ua/"><img class="banner2"
+						src="/pages/MainPage/images/la_strada2.gif" /></a>
+			</div>
+		</div>
+
+
 </body>
+
 </html>
