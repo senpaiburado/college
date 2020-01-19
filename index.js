@@ -12,6 +12,7 @@ const bodyParser = require("body-parser");
 var crypto = require('crypto');
 const MongoClient = require("mongodb").MongoClient;
 const MongoObjectId = require("mongodb").ObjectID;
+const cookieSession = require("cookie-session");
 
 console.log("Libraries are loaded.");
 console.log("Loading config...");
@@ -50,14 +51,27 @@ app.use(bodyParser.urlencoded({
 	keepExtensions: true,
 	uploadDir: "/pages/files"
 }));
-app.use(session({
-	secret: "college-chnu.cv.ua/sendu-developer",
-	resave: true,
-	saveUninitialized: true
+app.use(cookieSession({
+	name: 'session',
+	keys: ["college"],
 }));
+//app.use(session({
+//	//secret: "",
+//	secret: "college-chnu.cv.ua/sendu-developer",
+//	resave: true,
+//	saveUninitialized: true
+//}));
 app.use(expressUpload());
 
+app.get("/*", (req, res, next) => {
+	if (req.headers.host.match(/^www/) !== null)
+		res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
+	else
+		next();
+});
+
 app.get("/", function(request, response) {
+	console.log(request.session);
 	var newsPage = (!request.query || !request.query.page ? 1 : Number(request.query.page));
 	var isAdmin = false;
 	var adminName = "";
@@ -174,6 +188,8 @@ app.post("/admin/login", function(request, response) {
 			else {
 				if (data.password === dbData.password) {
 					request.session.name = data.username;
+					console.log(request.session);
+					request.session.save();
 					response.redirect("/");
 				} else {
 					response.send("Не вірний пароль!");
