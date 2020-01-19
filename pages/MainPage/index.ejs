@@ -64,7 +64,7 @@
 					</div>
 					<div class="mob-V">
 						<button
-							href="http://college-chnu.cv.ua/article/5c5cdf31c1634b0eaed26c84">Детальніше</button></span>
+							onclick='location.href="http://college-chnu.cv.ua/article/5c5cdf31c1634b0eaed26c84"'>Детальніше</button></span>
 						
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 			<ul>
 				<% for (var i = 0; i < news.length; i++) { %>
 				<li>
-					<p style="font-size: 11px; position: absolute; top: 0; left: -15px;">
+					<p class="mob-news-date" style="font-size: 11px; position: absolute; top: -5; left: -15px;">
 						<%= news[i].date.toISOString().split('T')[0] %></p>
 					<div id="img-containter">
 						<% if (admin) { %>
@@ -107,13 +107,16 @@
 						<% } %>
 						<img src="<%=news[i].image%>" />
 					</div>
+					<div class="mob-news-text">
 					<p><%- news[i].text %></p>
+					</div>
 				</li>
 				<% } %>
 			</ul>
 		</div>
+		<div id="pages-list-block">
 		<% if (pagesCount > 1) { %>
-		<ul id="pages-list">
+		<ul id="pages-list" class="pc-type">
 			<% if (pagesCount <= 10) { %>
 			<% for (var i = 1; i < pagesCount + 1; i++) { %>
 			<% if (page === i) { %>
@@ -147,7 +150,42 @@
 			<% } %>
 			<% } %>
 		</ul>
+		<ul id="pages-list" class="mob-type">
+			<% if (pagesCount <= 4) { %>
+			<% for (var i = 1; i < pagesCount + 1; i++) { %>
+			<% if (page === i) { %>
+			<li><%= i %></li>
+			<% } else { %>
+			<li><a href="/?page=<%=i%>"><%= i %></a></li>
+			<% } %>
+
+			<% } } else { %>
+			<% if (page - 2 > 0) { %>
+			<% if (page - 1 > 1) { %>
+			<li><a href="/?page=1">1</a></li>
+			<% } %>
+			<li>...</li>
+			<% } %>
+
+			<% if (page - 1 > 0) { %>
+			<li><a href="/?page=<%=page-1%>"><%= page - 1 %></a></li>
+			<% } %>
+
+			<li><%= page %></li>
+
+			<% if (page + 1 !== pagesCount + 1) { %>
+			<li><a href="/?page=<%=page+1%>"><%= page + 1 %></a></li>
+			<% } %>
+			<% if (page + 2 <= pagesCount + 1 && page !== pagesCount - 1) { %>
+			<li>...</li>
+			<% } %>
+			<% if (page + 3 <= pagesCount + 1) { %>
+			<li><a href="/?page=<%=pagesCount%>"><%= pagesCount %></a></li>
+			<% } %>
+			<% } %>
+		</ul>
 		<% } %>
+	</div>
 		<% } %>
 
 
@@ -230,7 +268,7 @@
 	</div> -->
 
 
-			<div class="stat">
+			<div class="stat pc-type">
 				<div id="contacts-mob">
 					<p class="title">Статистика</p>
 					<a href="http://hotlog.ru/viewstat?id=2251042">Hotlog</a>

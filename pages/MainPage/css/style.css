@@ -105,6 +105,8 @@ background: #fff;
 @media screen and (max-width: 1000px) {
 	#news-block {
 		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 }
 
@@ -202,7 +204,17 @@ flex-direction: row;
 .hide{
 	display: none;
 }
+
+@media screen and (min-width: 1001px) {
+	.mob-type {
+		display: none !important;
+	}
+}
+
 @media screen and (max-width: 1000px) {
+	.pc-type {
+		display: none !important;
+	}
 	#news-block li {
 		width: 100%;
 		border-bottom: none;
@@ -212,22 +224,50 @@ flex-direction: row;
 		display: block;
 		justify-content: flex-end;
 	}
+	#pages-list-block {
+		width: 590px;
+		height: 100px;
+
+		display: block;
+		margin-right: auto;
+		margin-top: 50px;
+		margin-left: auto;
+	}
 	#pages-list {
 		display: block;
 		list-style-type: none;
-		margin: 0;
+		/* margin: 0; */
 		padding: 10;
 		font-size: 35pt;
 		text-decoration: none;
-		margin-left: 40%;
-		margin-right: 32%;
-		border-radius: 25px;
-		background-color:#073953 ;
+		/* margin-left: 40%; */
+		/* margin: auto; */
+		/* width: auto; */
+		margin-left: 0px;
+		
+	}
+	#pages-list li {
+		display: inline-block;
+		background-color: #083953;
+		color: white;
+		width: 70px;
+		height: 70px;
+		min-width: 70px;
+		min-height: 70px;
+		text-align: center;
+		border-radius: 6px;
+	}
+	#pages-list li a {
+		width: 70px;
+		height: 70px;
+		text-align: center;
+		text-decoration: none;
+		outline: 0;
 	}
 	#news-block h1 {
 		width: 100%;
 		color: #2413DD;
-		font-size: 35pt;
+		font-size: 37pt;
 		font-weight: bold;
 		display: block;
 		text-align: center;
@@ -239,6 +279,12 @@ flex-direction: row;
 	}
 	#news-block {
 		width: 100%;
+	}
+	.mob-news-date {
+		font-size: 12pt !important;
+	}
+	.mob-news-text {
+		font-size: 16pt !important;
 	}
 	.baner-mob{
 		width: 100%;
@@ -300,8 +346,8 @@ flex-direction: row;
 		width: 100%;
 	}
 	.mob-vers-director p {
-		font-size: 15pt;
-		line-height: 25px;
+		font-size: 22pt;
+		line-height: 34px;
 	}
 	.director-img-mob {
 		display: flex;
