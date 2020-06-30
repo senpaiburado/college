@@ -14,14 +14,16 @@
 		</ul>
 	</div>
 
-	<a href="http://vstup.chnu.edu.ua/?page_id=1980" id="courses-link"><img src="/pages/MainPage/images/courses.jpg"/></a>
-	<a href="https://www.netacad.com/" id="cisco-banner"><img src="/pages/MainPage/images/cisco.jpg" width="256" height="443"></img></a>
-
 	<div id="contacts">
 		<p class="title">Контакти<%if (admin) { %><a href="/admin/edit-contact" style="float: right; color: lightblue;">Редагувати</a><% } %></p>
 		<p id="contacts-text"><%- contacts.address %><br/>Тел/факс: <%= contacts.telephone %><br/>E-Mail: <%= contacts.email %></p>
 		<a href="http://www.ukr.net/theheavenshundred.html" style="padding-left: 25px;"><img src="/pages/MainPage/images/baner-sotnya.png"/></a>
 	</div>
+
+	<a href="http://vstup.chnu.edu.ua/?page_id=1980" id="courses-link"><img src="/pages/MainPage/images/courses.jpg"/></a>
+	<a href="https://www.netacad.com/" id="cisco-banner"><img src="/pages/MainPage/images/cisco.jpg" width="256" height="443"></img></a>
+
+	
 
 	<div id="SinoptikInformer" style="width:258px; margin-top: 20px;" class="SinoptikInformer type1c1"><div class="siHeader"><div class="siLh"><div class="siMh"><a onmousedown="siClickCount();" class="siLogo" href="https://ua.sinoptik.ua/" target="_blank" rel="nofollow" title="Погода"> </a>Погода <span id="siHeader"></span></div></div></div><div class="siBody"><a onmousedown="siClickCount();" href="https://ua.sinoptik.ua/погода-чернівці" title="Погода у Чернівцях" target="_blank"><div class="siCity"><div class="siCityName"><span>Чернівці</span></div><div id="siCont0" class="siBodyContent"><div class="siLeft"><div class="siTerm"></div><div class="siT" id="siT0"></div><div id="weatherIco0"></div></div><div class="siInf"><p>вологість: <span id="vl0"></span></p><p>тиск: <span id="dav0"></span></p><p>вітер: <span id="wind0"></span></p></div></div></div></a><div class="siLinks">Погода на 10 днів від <a href="https://ua.sinoptik.ua/погода-чернівці/10-днів" title="Погода на 10 днів" target="_blank" onmousedown="siClickCount();">sinoptik.ua</a></div></div><div class="siFooter"><div class="siLf"><div class="siMf"></div></div></div></div><script type="text/javascript" charset="UTF-8" src="//sinoptik.ua/informers_js.php?title=4&amp;wind=3&amp;cities=303028948&amp;lang=ua"></script>
 
@@ -39,7 +41,7 @@
 
 	
 
-	<div id="contacts">
+	<div id="contacts" style="display: none">
 		<p class="title">Статистика</p>
 		<a href="http://hotlog.ru/viewstat?id=2251042">Hotlog</a>
 	</div>
